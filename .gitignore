@@ -1,0 +1,9 @@
+.__pycache__
+.idea
+../.idea
+.git
+../.git
+.migrations
+__pycache__
+migrations
+env
