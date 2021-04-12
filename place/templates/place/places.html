@@ -1,0 +1,21 @@
+{% extends 'base_generic.html' %}
+
+{% block body %}
+    <h4 style="color: #002aff">All Places</h4>
+    <h3>Total places is/are {{ places|length }}</h3>
+    <br>
+    <ul class="list-group list-group-flush">
+        {% for place in places %}
+            <li class="list-group-item">
+                <h6 style="color: lightcoral"><a href="{% url 'place' place.pk %}">{{ place.title }}</a><br></h6>
+
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item"><strong>Address: </strong><br>{{ place.city }}, {{ place.address }}</li>
+                    <li class="list-group-item"><strong>Phone number: </strong><br>{{ place.phone }}</li>
+                    <li class="list-group-item"><strong>Location: </strong><br>{{ place.location }}</li>
+                </ul>
+            </li>
+            <br>
+        {% endfor %}
+    </ul>
+{% endblock %}
