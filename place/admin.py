@@ -6,4 +6,4 @@ from .models import Place
 
 @admin.register(Place)
 class PlaceAdmin(OSMGeoAdmin):
-    list_display = ('title', 'location', 'city')
+    list_display = ('title', 'location', 'description', 'address', 'city', 'type')
