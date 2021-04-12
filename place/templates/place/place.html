@@ -23,10 +23,10 @@
                 <li class="list-group-item"><strong>Best for: </strong><br>{{ place.type }}</li>
                 <li class="list-group-item"><strong>Address: </strong><br>{{ place.city }}, {{ place.address }}</li>
                 <li class="list-group-item"><strong>Description: </strong><br>{{ place.description|linebreaks }}</li>
-                <li class="list-group-item"><strong>Phone number: </strong><br>{{ place.phone }}</li>
                 <li class="list-group-item"><strong>Location: </strong><br>
                     <div id="m" style="width: 100%; height: 100%">
                         Near {{ place.city }}
+                        Location: {{place.location}}
                     </div>
                 </li>
             </ul>
@@ -34,36 +34,5 @@
         <br>
 
     </ul>
-
-
-
-<!--    <div id="mapid" style="width: 600px; height: 400px;"></div>-->
-<!--    <script>-->
-
-<!--        var mymap = L.map('mapid').setView({{ place.lat_lon }}, 13);-->
-
-<!--        L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {-->
-<!--            maxZoom: 18,-->
-<!--            attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, ' +-->
-<!--                'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',-->
-<!--            id: 'mapbox/streets-v11',-->
-<!--            tileSize: 512,-->
-<!--            zoomOffset: -1-->
-<!--        }).addTo(mymap);-->
-
-<!--        L.marker({{ place.lat_lon }}).addTo(mymap).bindPopup('{{ place }}');-->
-
-<!--        L.circle({{ place.lat_lon }}, {-->
-<!--            color: 'red',-->
-<!--            fillColor: '#f03',-->
-<!--            fillOpacity: 0.5,-->
-<!--            radius: 50-->
-<!--        }).addTo(mymap);-->
-
-<!--        L.polygon([]).addTo(mymap);-->
-
-
-<!--    </script>-->
-
 
 {% endblock %}

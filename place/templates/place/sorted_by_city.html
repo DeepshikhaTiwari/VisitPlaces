@@ -5,7 +5,7 @@
   <ul>
     {% for place in distinct_place %}
       <li>
-        <a href="{% url 'sorted_by_city'place.title %}">{{place}}</a>
+        <a href="{% url 'place-detail'place.id %}">{{place}}</a>
       </li>
   </ul>
 </div>
