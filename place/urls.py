@@ -6,6 +6,6 @@ urlpatterns = [
     path('place/', views.PlaceListView.as_view(), name='place'),
     path('place/<int:pk>/', views.PlaceDetailView.as_view(), name="place"),
     path('sortcity/', views.sortcity, name="sort_by_city"),
-    path('sorted_by_city/<str:cityname>', views.sorted_by_city, name="sorted_by_city"),
-    path('create/', views.PlaceCreate.as_view(), name="new-place"),
+    path('place/add_place/', views.add_place, name="new-place"),
+    path('distinct_cities/<str:cityname>', views.all_place_in_city, name="instance-city-place"),
 ]
