@@ -76,10 +76,10 @@ WSGI_APPLICATION = 'newplace.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.contrib.gis.db.backends.postgis',
-        'NAME': 'placeapp',
-        'USER': 'postgres',
-        'PASSWORD': '1234567',
-        'HOST': 'localhost',
+        'NAME': 'dajffvl880apkf',
+        'USER': 'jmtppkpsmeyuoq',
+        'PASSWORD': '55dd6fbd2f7602300ff3965d670e13fa98001406165fc2167393c39fe222200b',
+        'HOST': 'ec2-18-233-83-165.compute-1.amazonaws.com',
         'PORT': '5432'
     }
 }
