@@ -1,5 +1,4 @@
 appdirs==1.4.3
-apturl==0.5.2
 asgiref==3.3.1
 automium==0.2.6
 automium-web==0.1.1
