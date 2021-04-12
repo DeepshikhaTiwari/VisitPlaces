@@ -10,7 +10,13 @@ def index(request):
 
 
 def sortcity(request):
-    return render(request, 'sortcity.html')
+    distinct_city = Place.objects.distinct('city')
+    return render(request, 'place/sortcity.html', context={'distinct_city' : distinct_city})
+
+
+def sorted_by_city(request, cityname):
+    cities = Place.objects.filter(city=cityname)
+    return render(request, 'place/sorted_by_city.html', context={'cities': cities})
 
 
 class PlaceDetailView(generic.DetailView):
@@ -31,5 +37,5 @@ class PlaceListView(generic.ListView):
 
 class PlaceCreate(generic.CreateView):
     model = Place
-    fields = ['title', 'location', 'description', 'address', 'phone', 'city', 'type']
+    fields = ['title', 'location', 'description', 'address', 'city', 'type']
     template_name = 'place/add_places.html'
