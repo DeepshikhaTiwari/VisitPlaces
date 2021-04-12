@@ -5,6 +5,7 @@ urlpatterns = [
     path('', views.index, name='index'),
     path('place/', views.PlaceListView.as_view(), name='place'),
     path('place/<int:pk>/', views.PlaceDetailView.as_view(), name="place"),
-    path('sortcity', views.sortcity, name="sort_by_city"),
+    path('sortcity/', views.sortcity, name="sort_by_city"),
+    path('sorted_by_city/<str:cityname>', views.sorted_by_city, name="sorted_by_city"),
     path('create/', views.PlaceCreate.as_view(), name="new-place"),
 ]
