@@ -1,6 +1,8 @@
+from django.shortcuts import render, redirect
 from django.http import HttpResponse
-from django.shortcuts import render
 from django.views import generic
+from .forms import PlaceForm
+from django.contrib import messages
 
 from .models import Place
 
@@ -10,20 +12,25 @@ def index(request):
 
 
 def sortcity(request):
-    distinct_city = Place.objects.distinct('city')
-    return render(request, 'place/sortcity.html', context={'distinct_city' : distinct_city})
+    distinct_cities = Place.objects.distinct('city')
+    return render(request, 'place/sortcity.html', context={'distinct_cities': distinct_cities})
 
 
-def sorted_by_city(request, cityname):
-    cities = Place.objects.filter(city=cityname)
-    return render(request, 'place/sorted_by_city.html', context={'cities': cities})
+def all_place_in_city(request, cityname):
+    list_of_place = Place.objects.filter(city=cityname)
+    return render(request, 'place/sorted_by_city.html', context={'list_of_place': list_of_place})
+
+
+def add_place(request):
+    form = PlaceForm()
+    return render(request, 'place/add_places.html', {"form": form})
 
 
 class PlaceDetailView(generic.DetailView):
     model = Place
     template_name = 'place/place.html'
     context_object_name = 'place'
-    paginate_by = 5
+    paginate_by = 2
     queryset = Place.objects.filter(location__isnull=False)
 
 
@@ -31,11 +38,5 @@ class PlaceListView(generic.ListView):
     model = Place
     template_name = 'place/places.html'
     context_object_name = 'places'
-    paginate_by = 5
+    paginate_by = 2
     queryset = Place.objects.filter(location__isnull=False)
-
-
-class PlaceCreate(generic.CreateView):
-    model = Place
-    fields = ['title', 'location', 'description', 'address', 'city', 'type']
-    template_name = 'place/add_places.html'
